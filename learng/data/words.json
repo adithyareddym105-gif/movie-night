@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "term": "Bonjour",
+    "translation": "Hello",
+    "exampleSentence": "Bonjour, comment allez-vous ?",
+    "createdAt": "2026-11-01",
+    "languageId": "1"
+  },
+  {
+    "id": "2",
+    "term": "Merci",
+    "translation": "Thank you",
+    "exampleSentence": "Merci beaucoup pour votre aide.",
+    "createdAt": "2026-11-02",
+    "languageId": "1"
+  },
+  {
+    "id": "3",
+    "term": "Maison",
+    "translation": "House",
+    "exampleSentence": "Ma maison est près de l'école.",
+    "createdAt": "2026-11-03",
+    "languageId": "1"
+  },
+  {
+    "id": "4",
+    "term": "Hola",
+    "translation": "Hello",
+    "exampleSentence": "Hola, ¿cómo estás?",
+    "createdAt": "2026-11-01",
+    "languageId": "2"
+  },
+  {
+    "id": "5",
+    "term": "Gracias",
+    "translation": "Thank you",
+    "exampleSentence": "Muchas gracias por todo.",
+    "createdAt": "2026-11-02",
+    "languageId": "2"
+  },
+  {
+    "id": "6",
+    "term": "こんにちは",
+    "translation": "Hello",
+    "exampleSentence": "こんにちは、元気ですか？",
+    "createdAt": "2026-11-01",
+    "languageId": "3"
+  }
+]

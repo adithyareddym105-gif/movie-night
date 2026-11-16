@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "French",
+    "slug": "french",
+    "description": "Build confidence in everyday French.",
+    "level": "B2"
+  },
+  {
+    "id": "2",
+    "name": "Spanish",
+    "slug": "spanish",
+    "description": "Learn useful Spanish words and expressions.",
+    "level": "A1"
+  },
+  {
+    "id": "3",
+    "name": "Japanese",
+    "slug": "japanese",
+    "description": "Start learning Japanese vocabulary.",
+    "level": "Beginner"
+  }
+]
