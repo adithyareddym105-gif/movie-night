@@ -48,3 +48,25 @@
 
 5. **Which version would you choose for a public movie catalogue that changes once a week?**
    I would choose the static server-rendered version. It loads quickly and doesn't need to fetch the same data on every visit. We can simply rebuild and redeploy the application whenever the movie list changes.
+
+## Lab 3 — Navigation, Static Generation and Layouts
+
+1. **NavLink uses `usePathname`, which is a Client Component feature. Why is `aria-current="true"` already visible in the page source?**
+
+   Next.js can pre-render Client Components on the server to generate the initial HTML. This means the navigation links and their active state can already appear in the page source before the browser hydrates the component.
+
+2. **Why does `generateStaticParams` return `String(movie.id)` instead of a number? Why does `/movies/42` return 404 without checking the page code?**
+
+   Dynamic route parameters are strings because they come from the URL. `String(movie.id)` converts each numeric movie ID into a string. Also, `dynamicParams = false` tells Next.js to allow only the IDs returned by `generateStaticParams`. Since 42 is not in the generated list, Next.js returns a 404.
+
+3. **Why does the Notes input persist between `/movies` and `/movies/2`, but disappear when visiting `/about`?**
+
+   The Notes input is inside `app/movies/layout.tsx`, which is shared by the Movies page and its nested movie pages. Next.js keeps this layout mounted when navigating between those pages, so its state is preserved. When I navigate to `/about`, I leave the Movies section, so the nested layout is unmounted and its state is lost.
+
+4. **In the production error test, where can we see the real error message, and why doesn't Next.js send it to the browser?**
+
+   In development, the browser displays the detailed error message. In production, Next.js displays a generic error instead. The original error details are available in the server logs. This prevents sensitive internal information from being exposed to users.
+
+5. **Why does the loading message appear for `/movies/2` in development but not with `npm start`, while it still appears for `/movies`?**
+
+   In development, Next.js can show the loading UI while the page waits for its data. In production, `/movies/2` is statically generated during the build, so its HTML is already available and the loading UI is not needed. The `/movies` route uses `force-dynamic`, so it is rendered on demand and can still show the loading UI while its data loads.
