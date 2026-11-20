@@ -70,3 +70,20 @@
 5. **Why does the loading message appear for `/movies/2` in development but not with `npm start`, while it still appears for `/movies`?**
 
    In development, Next.js can show the loading UI while the page waits for its data. In production, `/movies/2` is statically generated during the build, so its HTML is already available and the loading UI is not needed. The `/movies` route uses `force-dynamic`, so it is rendered on demand and can still show the loading UI while its data loads.
+
+## Lab 4, Part 1 — API Integration and Client Components
+
+1. **Why did the build fail when the API was stopped?**
+   The Next.js application fetches movie data from the external API during the build. When the API was stopped, the connection was refused (`ECONNREFUSED 127.0.0.1:4001`). Starting the API again allowed the build to succeed.
+
+2. **Why did the API terminal show only 7 calls during the build?**
+   There was one request to get the movie list and six requests to get individual movies. `generateMetadata` and the movie page both request the same movie. Next.js memoizes identical fetch requests during rendering, so the duplicate request is reused.
+
+3. **What would happen if a secret API key were rendered in a Client Component?**
+   The secret could appear in the generated HTML or browser-visible output and could be read by users. Secret API keys should remain on the server and must not be exposed through Client Components.
+
+4. **Why can't we pass a normal function from a Server Component to a Client Component?**
+   Functions cannot be serialized into the React Server Component payload. Props passed across the server-client boundary must be serializable, except for supported Server Actions.
+
+5. **Why can't a Client Component import a module containing `server-only`?**
+   The `server-only` package prevents server-only code from being included in the Client Component module graph. This protects server-side code and secrets from being exposed to the browser.
